@@ -33,6 +33,10 @@ class SqlSrvConfig extends PdoConfig
 
         $params['server'] = $params['host'];
         unset($params['host']);
+        
+        //Windows pdo_sqlsrv compatibility
+        $params['database'] = $params['dbname'];
+        unset($params['dbname']);
 
         if (is_null($params['MultipleActiveResultSets'])) {
             unset($params['MultipleActiveResultSets']);
